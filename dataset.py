@@ -1,10 +1,9 @@
 import tensorflow as tf
 
 def _parse_function(filename, label):
-    image_contents = tf.read_file(filename)                   # read img to string
+    image_contents = tf.read_file(filename)         # read img to string
     image_decoded = tf.image.decode_image(image_contents)     # decode img to uint8 tensor
-    image_resized = tf.image.resize_images(image_decoded, [28, 28])   # resize img
-    return image_resized, label
+    return image_decoded, label
 
 def load_dataset(file_path_list, label_list, batchsize=32, repeat=10):
 
@@ -18,7 +17,5 @@ def load_dataset(file_path_list, label_list, batchsize=32, repeat=10):
 
     # element in dataset: (image_resized_batch, label_batch)
 
-    dataset = dataset.shuffle(buffersize=1000).batch(batchsize).repeat(repeat)
-    # shape of image_resized_batch is(batch_size, img_w, img_h, img channal), shape pf label_batch is(batch_size, )
-
     return dataset
+

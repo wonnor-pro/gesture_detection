@@ -68,7 +68,8 @@ def get_train_test_list(dataset_path = "dataset_sorted/", testdata_amount = 500)
             else:
                 raise RuntimeError("Wrong train index list")
 
-    return [train_files, train_labels], [test_files, test_labels]
+
+    return train_files, train_labels, test_files, test_labels
 
 
 
