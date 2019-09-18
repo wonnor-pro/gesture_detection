@@ -60,7 +60,7 @@ if plot:
 
     plt.figure(figsize=(10,10))
     i = 0
-    for (image, label) in test_dataset.take(25):
+    for (image, label) in test_dataset.shuffle(num_train_examples).take(25):
         image = image.numpy().reshape((28,28))
         plt.subplot(5,5,i+1)
         plt.xticks([])
@@ -87,19 +87,18 @@ BATCH_SIZE = 32
 train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
 test_dataset = test_dataset.batch(BATCH_SIZE)
 
-model.fit(train_dataset, epochs=200, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
+model.fit(train_dataset, epochs=50, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
 
 
 model.save_weights('checkpoints/Sep18')
 
 
 # ---------------TESTING-----------------------
-test_dataset.shuffle(num_test_examples)
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))
 print('Accuracy on test dataset:', test_accuracy)
 
 # ---------------INFERENCING-------------------
-for test_images, test_labels in test_dataset.take(1):
+for test_images, test_labels in test_dataset.shuffle(num_test_examples).take(1):
     test_images = test_images.numpy()
     test_labels = test_labels.numpy()
     predictions = model.predict(test_images)
