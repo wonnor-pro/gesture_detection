@@ -1,6 +1,8 @@
 import numpy as np
 import tensorflow as tf
 
+# This is my playground.
+
 def main(unused_argv):
     # Load training and eval data
     mnist = tf.contrib.learn.datasets.load_dataset("mnist")
