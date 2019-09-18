@@ -5,23 +5,14 @@ from dataset import load_dataset
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
 tf.enable_eager_execution()
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
-
-# dataset, metadata = tfds.load('fashion_mnist', as_supervised=True, with_info=True)
 dataset_path = "dataset_sorted/"
 testdata_amount = 500
 train_file_path_list, train_label_list, test_file_path_list, test_label_list = get_train_test_list(dataset_path, testdata_amount)
-train_dataset = load_dataset(train_file_path_list, train_label_list, batchsize=32, repeat=10)
 test_dataset = load_dataset(test_file_path_list, test_label_list, batchsize=32, repeat=10)
 
-print(train_dataset)
-
-plot = False
-img_rows, img_cols = 28, 28
 
 class_names = ['0SingleOne', '1SingleTwo', '2SingleFour', '3SingleSix',
                '4SingleEight', '5SingleNine', '6SingleBad', '7SingleGood']
@@ -34,7 +25,6 @@ print("Number of training examples: {}".format(num_train_examples))
 print("Number of test examples:     {}".format(num_test_examples))
 print('--------------------------')
 
-
 def normalize(images, labels):
   images = tf.cast(images, tf.float32)
   images /= 255
@@ -42,11 +32,13 @@ def normalize(images, labels):
 
 # The map function applies the normalize function to each element in the train
 # and test datasets
-train_dataset =  train_dataset.map(normalize)
-test_dataset  =  test_dataset.map(normalize)
 
-print(train_dataset)
+test_dataset  =  test_dataset.map(normalize)
+img_rows, img_cols = 28, 28
+
 print(test_dataset)
+
+plot=True
 
 # Take a single image, and remove the color dimension by reshaping
 for image, label in test_dataset.take(1):
@@ -64,7 +56,7 @@ if plot:
 
     plt.figure(figsize=(10,10))
     i = 0
-    for (image, label) in test_dataset.shuffle(num_train_examples).take(25):
+    for (image, label) in test_dataset.shuffle(num_test_examples).take(25):
         image = image.numpy().reshape((28,28))
         plt.subplot(5,5,i+1)
         plt.xticks([])
@@ -76,7 +68,6 @@ if plot:
     plt.show()
 
 # --------------TRAINING------------------------
-
 
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Conv2D(32, kernel_size=(3, 3),activation=tf.nn.relu,input_shape=(img_rows, img_cols, 1)))
@@ -92,14 +83,10 @@ model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
+model.load_weights('checkpoints/kcnn')
+
 BATCH_SIZE = 32
-train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
-test_dataset = test_dataset.batch(BATCH_SIZE)
-
-model.fit(train_dataset, epochs=18, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
-
-
-model.save_weights('checkpoints/kcnn')
+test_dataset = test_dataset.shuffle(num_test_examples).batch(BATCH_SIZE)
 
 
 # ---------------TESTING-----------------------
@@ -144,7 +131,7 @@ def plot_value_array(i, predictions_array, true_label):
     plt.grid(False)
     plt.xticks([])
     plt.yticks([])
-    thisplot = plt.bar(range(10), predictions_array, color="#777777")
+    thisplot = plt.bar(range(8), predictions_array, color="#777777")
     plt.ylim([0, 1])
     predicted_label = np.argmax(predictions_array)
 
@@ -153,16 +140,16 @@ def plot_value_array(i, predictions_array, true_label):
 
 
 
-# # Plot the first X test images, their predicted label, and the true label
-# # Color correct predictions in blue, incorrect predictions in red
-# num_rows = 5
-# num_cols = 3
-# num_images = num_rows*num_cols
-# plt.figure(figsize=(2*2*num_cols, 2*num_rows))
-# for i in range(num_images):
-#   plt.subplot(num_rows, 2*num_cols, 2*i+1)
-#   plot_image(i, predictions, test_labels, test_images)
-#   plt.subplot(num_rows, 2*num_cols, 2*i+2)
-#   plot_value_array(i, predictions, test_labels)
-# plt.show()
+# Plot the first X test images, their predicted label, and the true label
+# Color correct predictions in blue, incorrect predictions in red
+num_rows = 5
+num_cols = 5
+num_images = num_rows*num_cols
+plt.figure(figsize=(2*2*num_cols, 2*num_rows))
+for i in range(num_images):
+  plt.subplot(num_rows, 2*num_cols, 2*i+1)
+  plot_image(i, predictions, test_labels, test_images)
+  plt.subplot(num_rows, 2*num_cols, 2*i+2)
+  plot_value_array(i, predictions, test_labels)
+plt.show()
 
