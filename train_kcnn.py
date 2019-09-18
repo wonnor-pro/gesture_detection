@@ -101,7 +101,7 @@ BATCH_SIZE = 32
 train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
 test_dataset = test_dataset.batch(BATCH_SIZE)
 
-model.fit(train_dataset, epochs=50, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
+model.fit(train_dataset, epochs=18, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
 
 
 model.save_weights('checkpoints/Sep18')
