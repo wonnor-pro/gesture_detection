@@ -87,7 +87,7 @@ BATCH_SIZE = 32
 train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
 test_dataset = test_dataset.batch(BATCH_SIZE)
 
-model.fit(train_dataset, epochs=20, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
+model.fit(train_dataset, epochs=200, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
 
 
 model.save_weights('checkpoints/Sep18')
@@ -98,19 +98,18 @@ test_dataset.shuffle(num_test_examples)
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))
 print('Accuracy on test dataset:', test_accuracy)
 
-if plot:
-    # ---------------INFERENCING-------------------
-    for test_images, test_labels in test_dataset.take(1):
-      test_images = test_images.numpy()
-      test_labels = test_labels.numpy()
-      predictions = model.predict(test_images)
+# ---------------INFERENCING-------------------
+for test_images, test_labels in test_dataset.take(1):
+    test_images = test_images.numpy()
+    test_labels = test_labels.numpy()
+    predictions = model.predict(test_images)
 
-    # ---------------SHOW THE RESULT-------------------
-    prediction_labels = []
-    for i in range(predictions.shape[0]):
-        prediction_labels.append(np.argmax(predictions[i]))
-    print("predictions:", prediction_labels)
-    print("Ground truth:", test_labels)
+# ---------------SHOW THE RESULT-------------------
+prediction_labels = []
+for i in range(predictions.shape[0]):
+    prediction_labels.append(np.argmax(predictions[i]))
+print("predictions:", prediction_labels)
+print("Ground truth:", test_labels)
 
 
 def plot_image(i, predictions_array, true_labels, images):
