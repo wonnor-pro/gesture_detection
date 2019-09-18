@@ -133,7 +133,7 @@ def main(unused_argv):
 
   gesture_classifier.train(
       input_fn=train_input_fn,
-      steps=1267000,
+      steps=20000,
       hooks=[logging_hook])
 
   # Evaluate
