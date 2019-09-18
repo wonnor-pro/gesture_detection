@@ -97,6 +97,7 @@ print('Accuracy on test dataset:', test_accuracy)
 for test_images, test_labels in test_dataset.shuffle(num_test_examples).take(1):
     test_images = test_images.numpy()
     test_labels = test_labels.numpy()
+    print(test_images.shape)
     predictions = model.predict(test_images)
 
 # ---------------SHOW THE RESULT-------------------
