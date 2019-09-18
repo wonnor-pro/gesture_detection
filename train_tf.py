@@ -2,7 +2,6 @@ import tensorflow as tf
 
 import numpy as np
 import cv2
-import tensorflow.keras as keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
@@ -89,8 +88,8 @@ print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
-y_train = tensorflow.keras.utils.to_categorical(y_train, num_classes)
-y_test = tensorflow.keras.utils.to_categorical(y_test, num_classes)
+y_train = tf.keras.utils.to_categorical(y_train, num_classes)
+y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3),activation='relu',input_shape=input_shape))
@@ -102,7 +101,7 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
-model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.Adadelta(),metrics=['accuracy'])
+model.compile(loss='sparse_categorical_crossentropy',optimizer=tf.keras.optimizers.Adadelta(),metrics=['accuracy'])
 
 model.fit(x_train, y_train,
           batch_size=batch_size,
