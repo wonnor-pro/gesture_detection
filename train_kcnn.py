@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 tf.enable_eager_execution()
 
+os.environ['CUDA_VISIBLE_DEVICES'] = 1
+
 # dataset, metadata = tfds.load('fashion_mnist', as_supervised=True, with_info=True)
 dataset_path = "dataset_sorted/"
 testdata_amount = 500
