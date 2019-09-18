@@ -2,7 +2,7 @@ import tensorflow as tf
 
 import numpy as np
 import cv2
-import tensorflow.keras
+import tensorflow.keras as keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
@@ -93,9 +93,7 @@ y_train = tensorflow.keras.utils.to_categorical(y_train, num_classes)
 y_test = tensorflow.keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3),
-                 activation='relu',
-                 input_shape=input_shape))
+model.add(Conv2D(32, kernel_size=(3, 3),activation='relu',input_shape=input_shape))
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
@@ -104,9 +102,7 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
-model.compile(loss=tensorflow.keras.losses.categorical_crossentropy,
-              optimizer=tensorflow.keras.optimizers.Adadelta(),
-              metrics=['accuracy'])
+model.compile(loss='sparse_categorical_crossentropy',optimizer=keras.optimizers.Adadelta(),metrics=['accuracy'])
 
 model.fit(x_train, y_train,
           batch_size=batch_size,
