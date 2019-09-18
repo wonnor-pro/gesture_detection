@@ -57,7 +57,7 @@ print("Number of training examples: {}".format(num_train_examples))
 print("Number of test examples:     {}".format(num_test_examples))
 print('--------------------------')
 
-batch_size = 128
+batch_size = 32
 num_classes = 8
 epochs = 12
 
