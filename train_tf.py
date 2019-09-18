@@ -101,7 +101,7 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
-model.compile(loss='sparse_categorical_crossentropy',optimizer=tf.keras.optimizers.Adadelta(),metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy',optimizer=tf.keras.optimizers.Adadelta(),metrics=['accuracy'])
 
 model.fit(x_train, y_train,
           batch_size=batch_size,
