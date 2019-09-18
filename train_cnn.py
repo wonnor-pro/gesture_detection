@@ -1,4 +1,3 @@
-import numpy as np
 import tensorflow as tf
 from generate_train_test import get_train_test_list
 import numpy as np
