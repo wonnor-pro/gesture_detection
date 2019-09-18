@@ -104,7 +104,7 @@ test_dataset = test_dataset.batch(BATCH_SIZE)
 model.fit(train_dataset, epochs=18, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
 
 
-model.save_weights('checkpoints/Sep18')
+model.save_weights('checkpoints/kcnn')
 
 
 # ---------------TESTING-----------------------
