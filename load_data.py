@@ -111,8 +111,8 @@ def sort_data(label_path = "label/", dataset_path = "dataset_sorted_aug/"):
                     # cv2.waitKey(0)
                     # cv2.imshow("flip", flipped)
                     # cv2.waitKey(0)
-                    new_img_path_1 = "{}/{}.png".format(subfolder_path, count_line)
-                    new_img_path_2 = "{}/{}.png".format(subfolder_path, 2*count_line)
+                    new_img_path_1 = "{}/{}.png".format(subfolder_path, 2*count_line)
+                    new_img_path_2 = "{}/{}.png".format(subfolder_path, 2*count_line+1)
                     cv2.imwrite(new_img_path_1, grayFrame)
                     cv2.imwrite(new_img_path_2, flipped)
                     count_img[count] += 2
