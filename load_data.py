@@ -81,10 +81,12 @@ def sort_data(label_path = "label/", dataset_path = "dataset_sorted_aug/"):
                     y1 = int(float(words[2]) * h)
                     x2 = int(float(words[3]) * w)
                     y2 = int(float(words[4]) * h)
-                    _x1 = int(float(words[1]) * w - 0.1 * w + dx)
-                    _y1 = int(float(words[2]) * h - 0.1 * h + dy)
-                    _x2 = int(float(words[3]) * w + 0.1 * w + dx)
-                    _y2 = int(float(words[4]) * h + 0.1 * h + dy)
+                    bw = x2 - x1
+                    bh = y2 - y1
+                    _x1 = int(float(words[1]) * w - 0.1 * bw + dx)
+                    _y1 = int(float(words[2]) * h - 0.1 * bh + dy)
+                    _x2 = int(float(words[3]) * w + 0.1 * bw + dx)
+                    _y2 = int(float(words[4]) * h + 0.1 * bh + dy)
                     if _x1<0:
                         _x1 = 0
                     elif _x1>MAX_X:

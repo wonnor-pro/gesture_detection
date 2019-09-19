@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ba733c1-28fd-4cf6-afc5-c81aec9e425f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/annotation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/annotation.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkpoints/kcnn_aug.data-00000-of-00002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkpoints/kcnn_aug.data-00001-of-00002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkpoints/kcnn_aug.index" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/load_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="38" />
+            <state relative-caret-position="-107">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#1500#2452#0" />
@@ -62,11 +66,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/load_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+            <state relative-caret-position="90">
+              <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
-                <marker date="1568901801758" expanded="true" signature="4839:5172" ph="..." />
+                <marker date="1568904144295" expanded="true" signature="4909:5242" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,11 +114,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/invalid_path.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -153,12 +152,12 @@
         <option value="$PROJECT_DIR$/train_cnn.py" />
         <option value="$PROJECT_DIR$/train_tf.py" />
         <option value="$PROJECT_DIR$/inference.py" />
-        <option value="$PROJECT_DIR$/camera.py" />
         <option value="$PROJECT_DIR$/playground.py" />
         <option value="$PROJECT_DIR$/inference_kcnn.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/train_kcnn.py" />
         <option value="$PROJECT_DIR$/generate_train_test.py" />
+        <option value="$PROJECT_DIR$/camera.py" />
         <option value="$PROJECT_DIR$/load_data.py" />
       </list>
     </option>
@@ -180,6 +179,11 @@
             <path>
               <item name="gesture_detection" type="b2602c69:ProjectViewProjectNode" />
               <item name="gesture_detection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gesture_detection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gesture_detection" type="462c0819:PsiDirectoryNode" />
+              <item name="checkpoints" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -224,6 +228,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21428572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -236,7 +241,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3642857" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2510204" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -298,17 +303,6 @@
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#1500#2452#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inference.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="662">
@@ -356,13 +350,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1500#2452#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset_sorted_aug/0/0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/load_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+        <state relative-caret-position="90">
+          <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
-            <marker date="1568901801758" expanded="true" signature="4839:5172" ph="..." />
+            <marker date="1568904144295" expanded="true" signature="4909:5242" ph="..." />
           </folding>
         </state>
       </provider>

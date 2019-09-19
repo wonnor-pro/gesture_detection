@@ -42,7 +42,7 @@ model.add(tf.keras.layers.Dense(8, activation=tf.nn.softmax))
 
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
-model.load_weights('checkpoints/kcnn')
+model.load_weights('checkpoints/kcnn_aug')
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
