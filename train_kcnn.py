@@ -12,7 +12,7 @@ tf.enable_eager_execution()
 os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 # dataset, metadata = tfds.load('fashion_mnist', as_supervised=True, with_info=True)
-dataset_path = "dataset_sorted/"
+dataset_path = "dataset_sorted_aug/"
 testdata_amount = 500
 train_file_path_list, train_label_list, test_file_path_list, test_label_list = get_train_test_list(dataset_path, testdata_amount)
 train_dataset = load_dataset(train_file_path_list, train_label_list, batchsize=32, repeat=10)
@@ -99,7 +99,7 @@ test_dataset = test_dataset.batch(BATCH_SIZE)
 model.fit(train_dataset, epochs=18, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))
 
 
-model.save_weights('checkpoints/kcnn')
+model.save_weights('checkpoints/kcnn_aug')
 
 
 # ---------------TESTING-----------------------
