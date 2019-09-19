@@ -3,7 +3,7 @@ import numpy as np
 from utils import mkdir, scan_folder, scan_file, cropImg, drawBoxes
 import os
 
-def get_train_test_list(dataset_path = "dataset_sorted/", testdata_amount = 500):
+def get_train_test_list(dataset_path = "dataset_sorted_aug/", testdata_amount = 500):
     # dataset_path = "dataset_sorted/"
     # testdata_amount = 500
 
