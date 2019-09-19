@@ -107,6 +107,7 @@ venv.bak/
 Dataset/
 dataset_sorted/
 NOT_USED/
+dataset_sorted_aug/
 
 # pycharm
 .idea/
